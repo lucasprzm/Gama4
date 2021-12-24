@@ -39,4 +39,9 @@ function populaTabela() {
     });
   }
 }
-populaTabela();
+
+$(function () {
+  if (dados) {
+    populaTabela();
+  }
+});
