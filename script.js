@@ -44,4 +44,34 @@ $(function () {
   if (dados) {
     populaTabela();
   }
+
+  $("#btnSalvar").click(function(){
+    //Evento click do botão salvar
+
+    let Nome = $("#txtNome").val()
+    let Descricao = $("#txtDescricao").val()
+    let Imagem = $("#img").val()
+
+    let registro = {}
+
+    registro.Nome = Nome
+    registro.Descricao = Descricao
+    registro.Imagem = Imagem 
+
+    registro.ID = dados.length + 1
+
+    dados.push(registro)
+
+    alert("Registro salvo com sucesso")
+    $("#modalRegistro").modal("hide")
+
+    //Limpeza dos campos
+    $("#txtNome").val("")
+    $("#txtDescricao").val("")
+    $("#img").val("")
+
+    populaTabela()
+    
+  })
+
 });
