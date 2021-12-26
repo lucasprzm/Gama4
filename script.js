@@ -19,6 +19,26 @@ var dados = [
   },
 ];
 
+function ApagaRegistro(id) {
+  let _confirm = confirm("Deseja realmente excluir este registro?")
+
+  if (_confirm) {
+    for (let i = 0; i < dados.length; i++) {
+      if (dados[i].ID == id) {
+        dados.splice(i, 1)
+      }      
+    }
+
+    populaTabela()
+
+  }
+}
+
+function EditaRegistro(id){
+
+}
+
+
 function populaTabela() {
   if (Array.isArray(dados)) {
     localStorage.setItem("__dados__", JSON.stringify(dados));
@@ -48,15 +68,15 @@ $(function () {
   $("#btnSalvar").click(function(){
     //Evento click do botão salvar
 
-    let Nome = $("#txtNome").val()
-    let Descricao = $("#txtDescricao").val()
-    let Imagem = $("#img").val()
+    let nome = $("#txtNome").val()
+    let imagem = $("#img").val()
+    let descricao = $("#txtDescricao").val()
 
     let registro = {}
 
-    registro.Nome = Nome
-    registro.Descricao = Descricao
-    registro.Imagem = Imagem 
+    registro.nome = nome
+    registro.descricao = descricao
+    registro.imagem = imagem 
 
     registro.ID = dados.length + 1
 
@@ -67,8 +87,8 @@ $(function () {
 
     //Limpeza dos campos
     $("#txtNome").val("")
-    $("#txtDescricao").val("")
     $("#img").val("")
+    $("#txtDescricao").val("")
 
     populaTabela()
     
