@@ -20,24 +20,20 @@ var dados = [
 ];
 
 function ApagaRegistro(id) {
-  let _confirm = confirm("Deseja realmente excluir este registro?")
+  let _confirm = confirm("Deseja realmente excluir este registro?");
 
   if (_confirm) {
     for (let i = 0; i < dados.length; i++) {
-      if (dados[i].ID == id) {
-        dados.splice(i, 1)
-      }      
+      if (dados[i].id == id) {
+        dados.splice(i, 1);
+      }
     }
 
-    populaTabela()
-
+    populaTabela();
   }
 }
 
-function EditaRegistro(id){
-
-}
-
+function EditaRegistro(id) {}
 
 function populaTabela() {
   if (Array.isArray(dados)) {
@@ -53,7 +49,7 @@ function populaTabela() {
       <td>${item.descricao}</td>
       <td>
       <button class="btn btn-secondary m-1">editar</button>
-      <button class="btn btn-danger m-1">excluir</button>
+      <button class="btn btn-danger m-1" onclick="ApagaRegistro(${item.id})">excluir</button>
       </td>
       </tr>`);
     });
@@ -65,33 +61,32 @@ $(function () {
     populaTabela();
   }
 
-  $("#btnSalvar").click(function(){
+  $("#btnSalvar").click(function () {
     //Evento click do botão salvar
 
-    let nome = $("#txtNome").val()
-    let imagem = $("#img").val()
-    let descricao = $("#txtDescricao").val()
+    let nome = $("#txtNome").val();
+    let imagem = $("#img").val();
+    let descricao = $("#txtDescricao").val();
 
-    let registro = {}
+    let registro = {};
 
-    registro.nome = nome
-    registro.descricao = descricao
-    registro.imagem = imagem 
+    registro.nome = nome;
+    registro.descricao = descricao;
+    registro.imgUrl = imagem;
 
-    registro.ID = dados.length + 1
+    registro.id = dados.length + 1;
 
-    dados.push(registro)
-
-    alert("Registro salvo com sucesso")
-    $("#modalRegistro").modal("hide")
+    dados.push(registro);
+    // teste
+    console.log(registro);
+    alert("Registro salvo com sucesso");
+    $("#modalRegistro").modal("hide");
 
     //Limpeza dos campos
-    $("#txtNome").val("")
-    $("#img").val("")
-    $("#txtDescricao").val("")
+    $("#txtNome").val("");
+    $("#img").val("");
+    $("#txtDescricao").val("");
 
-    populaTabela()
-    
-  })
-
+    populaTabela();
+  });
 });
