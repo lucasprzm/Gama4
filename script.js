@@ -33,7 +33,18 @@ function ApagaRegistro(id) {
   }
 }
 
-function EditaRegistro(id) {}
+function EditaRegistro(id) {
+  $("#modalRegistro").modal("show")
+
+  dados.forEach(function(item) {
+    if (item.id == id) {
+      $("#hdID").val(item.id)
+      $("#txtNome").val(item.nome)
+      $("#img").val(item.imagem)
+      $("#txtDescricao").val(item.descricao)
+    }
+  })
+}
 
 function populaTabela() {
   if (Array.isArray(dados)) {
@@ -48,7 +59,7 @@ function populaTabela() {
       </td>
       <td>${item.descricao}</td>
       <td>
-      <button class="btn btn-secondary m-1">editar</button>
+      <button class="btn btn-secondary m-1" onclick="EditaRegistro(${item.id})">editar</button>
       <button class="btn btn-danger m-1" onclick="ApagaRegistro(${item.id})">excluir</button>
       </td>
       </tr>`);
@@ -64,18 +75,31 @@ $(function () {
   $("#btnSalvar").click(function () {
     //Evento click do botão salvar
 
+    let _id = $("#hdID").val();
     let nome = $("#txtNome").val();
     let imagem = $("#img").val();
     let descricao = $("#txtDescricao").val();
+    
     let registro = {};
 
     registro.nome = nome;
     registro.descricao = descricao;
     registro.imgUrl = imagem;
 
-    registro.id = dados.length + 1;
+    if(!_id || _id == "0") {
+      registro.id = dados.length + 1;
+      dados.push(registro);      
+    }
+    else {
+      dados.forEach(function(item) {
+        if (item.id == _id) {
+          item.nome = nome
+          item.imagem = imagem
+          item.descricao = descricao
+        }
+      })
+    }
 
-    dados.push(registro);
     // teste
     console.log(registro);
 
@@ -90,3 +114,7 @@ $(function () {
     populaTabela();
   });
 });
+
+
+
+
