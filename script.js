@@ -33,7 +33,18 @@ function ApagaRegistro(id) {
   }
 }
 
-function EditaRegistro(id) {}
+function EditaRegistro(id) {
+  $("#modalRegistro").modal("show")
+
+  dados.forEach(function(item) {
+    if (item.id == id) {
+      $("#hdID").val(item.id)
+      $("#txtNome").val(item.nome)
+      $("#img").val(item.imagem)
+      $("#txtDescricao").val(item.descricao)
+    }
+  })
+}
 
 function populaTabela() {
   if (Array.isArray(dados)) {
@@ -48,7 +59,7 @@ function populaTabela() {
       </td>
       <td>${item.descricao}</td>
       <td>
-      <button class="btn btn-secondary m-1">editar</button>
+      <button class="btn btn-secondary m-1" onclick="EditaRegistro(${item.id})">editar</button>
       <button class="btn btn-danger m-1" onclick="ApagaRegistro(${item.id})">excluir</button>
       </td>
       </tr>`);
@@ -76,7 +87,7 @@ $(function () {
 
   $("#btnSalvar").click(function () {
     //Evento click do botão salvar
-
+    let _id = $("#hdID").val();
     let nome = $("#txtNome").val();
     let descricao = $("#txtDescricao").val();
     // Criando o objeto registro e suas propriedades
@@ -87,6 +98,20 @@ $(function () {
     registro.imgUrl = imagem;
     // Adicionando o novo objeto no array de cursos
     dados.push(registro);
+    
+    if(!_id || _id == "0") {
+      registro.id = dados.length + 1;
+      dados.push(registro);      
+    }
+    else {
+      dados.forEach(function(item) {
+        if (item.id == _id) {
+          item.nome = nome
+          item.imagem = imagem
+          item.descricao = descricao
+        }
+      })
+    }
     // Alerta de registro salvo com sucesso
     alert("Registro salvo com sucesso");
     // Escondendo o modal utilizando jQuery
@@ -99,3 +124,7 @@ $(function () {
     populaTabela();
   });
 });
+
+
+
+
