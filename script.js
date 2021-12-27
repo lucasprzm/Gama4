@@ -48,7 +48,7 @@ function EditaRegistro(id) {
 
 function populaTabela() {
   if (Array.isArray(dados)) {
-    localStorage.setItem("__dados__", JSON.stringify(dados));
+    //localStorage.setItem("__dados__", JSON.stringify(dados));
     // usando jquery para limpar a tabela
     $("#tblDados tbody").html("");
     dados.forEach((item) => {
@@ -66,7 +66,20 @@ function populaTabela() {
     });
   }
 }
-
+////////////////
+// Criação da variável imagem que será usada no objeto registro para novos cursos.
+let imagem = "";
+// Função que é chamada ao escolher uma imagem no modal, atribuí o valor de imagem como reader.result que gera um código base64 da imagem.
+function imagemURL(element) {
+  var file = element.files[0];
+  var reader = new FileReader();
+  reader.onloadend = function () {
+    imagem = reader.result;
+  };
+  reader.readAsDataURL(file);
+}
+///////////////
+// O $() antes dessa função permite chamar a função a função anônima com o jQuery.
 $(function () {
   if (dados) {
     populaTabela();
@@ -74,18 +87,18 @@ $(function () {
 
   $("#btnSalvar").click(function () {
     //Evento click do botão salvar
-
     let _id = $("#hdID").val();
     let nome = $("#txtNome").val();
-    let imagem = $("#img").val();
     let descricao = $("#txtDescricao").val();
-    
+    // Criando o objeto registro e suas propriedades
     let registro = {};
-
+    registro.id = dados.length + 1;
     registro.nome = nome;
     registro.descricao = descricao;
     registro.imgUrl = imagem;
-
+    // Adicionando o novo objeto no array de cursos
+    dados.push(registro);
+    
     if(!_id || _id == "0") {
       registro.id = dados.length + 1;
       dados.push(registro);      
@@ -99,18 +112,15 @@ $(function () {
         }
       })
     }
-
-    // teste
-    console.log(registro);
-
+    // Alerta de registro salvo com sucesso
     alert("Registro salvo com sucesso");
+    // Escondendo o modal utilizando jQuery
     $("#modalRegistro").modal("hide");
-
     //Limpeza dos campos
     $("#txtNome").val("");
     $("#img").val("");
     $("#txtDescricao").val("");
-
+    // Chamando a função novamente para re-exibir os cursos com o novo curso adicionado.
     populaTabela();
   });
 });
