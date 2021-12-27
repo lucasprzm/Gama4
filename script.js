@@ -67,7 +67,6 @@ $(function () {
     let nome = $("#txtNome").val();
     let imagem = $("#img").val();
     let descricao = $("#txtDescricao").val();
-
     let registro = {};
 
     registro.nome = nome;
@@ -79,6 +78,7 @@ $(function () {
     dados.push(registro);
     // teste
     console.log(registro);
+
     alert("Registro salvo com sucesso");
     $("#modalRegistro").modal("hide");
 
