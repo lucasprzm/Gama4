@@ -34,16 +34,16 @@ function ApagaRegistro(id) {
 }
 
 function EditaRegistro(id) {
-  $("#modalRegistro").modal("show")
+  $("#modalRegistro").modal("show");
 
-  dados.forEach(function(item) {
+  dados.forEach(function (item) {
     if (item.id == id) {
-      $("#hdID").val(item.id)
-      $("#txtNome").val(item.nome)
-      $("#img").val(item.imagem)
-      $("#txtDescricao").val(item.descricao)
+      $("#hdID").val(item.id);
+      $("#txtNome").val(item.nome);
+      $("#img").val(item.imagem);
+      $("#txtDescricao").val(item.descricao);
     }
-  })
+  });
 }
 
 function populaTabela() {
@@ -97,20 +97,19 @@ $(function () {
     registro.descricao = descricao;
     registro.imgUrl = imagem;
     // Adicionando o novo objeto no array de cursos
-    dados.push(registro);
-    
-    if(!_id || _id == "0") {
+    //dados.push(registro);
+
+    if (!_id || _id == "0") {
       registro.id = dados.length + 1;
-      dados.push(registro);      
-    }
-    else {
-      dados.forEach(function(item) {
+      dados.push(registro);
+    } else {
+      dados.forEach(function (item) {
         if (item.id == _id) {
-          item.nome = nome
-          item.imagem = imagem
-          item.descricao = descricao
+          item.nome = nome;
+          item.imgUrl = imagem;
+          item.descricao = descricao;
         }
-      })
+      });
     }
     // Alerta de registro salvo com sucesso
     alert("Registro salvo com sucesso");
@@ -124,7 +123,3 @@ $(function () {
     populaTabela();
   });
 });
-
-
-
-
