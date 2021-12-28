@@ -18,7 +18,7 @@ var dados = [
     descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti.",
   },
 ];
-
+// Função para apagar um curso e depois refazer a tabela.
 function ApagaRegistro(id) {
   let _confirm = confirm("Deseja realmente excluir este registro?");
 
@@ -32,7 +32,7 @@ function ApagaRegistro(id) {
     populaTabela();
   }
 }
-
+// Função para editar o curso.
 function EditaRegistro(id) {
   $("#modalRegistro").modal("show");
 
@@ -45,10 +45,9 @@ function EditaRegistro(id) {
     }
   });
 }
-
+// Função para montar a tabela de cursos.
 function populaTabela() {
   if (Array.isArray(dados)) {
-    //localStorage.setItem("__dados__", JSON.stringify(dados));
     // usando jquery para limpar a tabela
     $("#tblDados tbody").html("");
     dados.forEach((item) => {
@@ -66,7 +65,6 @@ function populaTabela() {
     });
   }
 }
-////////////////
 // Criação da variável imagem que será usada no objeto registro para novos cursos.
 let imagem = "";
 // Função que é chamada ao escolher uma imagem no modal, atribuí o valor de imagem como reader.result que gera um código base64 da imagem.
@@ -78,7 +76,6 @@ function imagemURL(element) {
   };
   reader.readAsDataURL(file);
 }
-///////////////
 // O $() antes dessa função permite chamar a função a função anônima com o jQuery.
 $(function () {
   if (dados) {
@@ -96,10 +93,9 @@ $(function () {
     registro.nome = nome;
     registro.descricao = descricao;
     registro.imgUrl = imagem;
-    // Adicionando o novo objeto no array de cursos
-    //dados.push(registro);
 
     if (!_id || _id == "0") {
+      // Adicionando o novo objeto no array de cursos
       registro.id = dados.length + 1;
       dados.push(registro);
     } else {
