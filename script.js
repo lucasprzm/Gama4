@@ -40,8 +40,8 @@ function EditaRegistro(id) {
     if (item.id == id) {
       $("#hdID").val(item.id);
       $("#txtNome").val(item.nome);
-      $("#img").val(item.imagem);
       $("#txtDescricao").val(item.descricao);
+      $("#img").val(item.imgUrl);
     }
   });
 }
@@ -96,7 +96,6 @@ $(function () {
 
     if (!_id || _id == "0") {
       // Adicionando o novo objeto no array de cursos
-      registro.id = dados.length + 1;
       dados.push(registro);
     } else {
       dados.forEach(function (item) {
