@@ -118,4 +118,10 @@ $(function () {
     // Chamando a função novamente para re-exibir os cursos com o novo curso adicionado.
     populaTabela();
   });
+  // Limpeza dos campos do modal quando o botão de fechar é clicado.
+  $("#btnFechar").click(() => {
+    $("#txtNome").val("");
+    $("#img").val("");
+    $("#txtDescricao").val("");
+  });
 });
