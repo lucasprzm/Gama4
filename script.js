@@ -41,7 +41,7 @@ function EditaRegistro(id) {
       $("#hdID").val(item.id);
       $("#txtNome").val(item.nome);
       $("#txtDescricao").val(item.descricao);
-      $("#img").val(item.imgUrl);
+      //$("#img").val(item.imgUrl);
     }
   });
 }
