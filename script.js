@@ -58,8 +58,8 @@ function populaTabela() {
       </td>
       <td>${item.descricao}</td>
       <td>
-      <button class="btn btn-secondary m-1" onclick="EditaRegistro(${item.id})">editar</button>
-      <button class="btn btn-danger m-1" onclick="ApagaRegistro(${item.id})">excluir</button>
+      <button class="btn btn-secondary m-1" onclick="EditaRegistro(${item.id})">Editar</button>
+      <button class="btn btn-danger m-1" onclick="ApagaRegistro(${item.id})">Excluir</button>
       </td>
       </tr>`);
     });
