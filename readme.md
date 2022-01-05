@@ -28,5 +28,5 @@ https://github.com/luizsaulo/Gama4
 •	JAVA SCRIPT
 •	REACT
 ## PESSOAS DESENVOLVEDORAS DO PROJETO:
-[<img src="https://avatars.githubusercontent.com/u/37356058?v=4" width=115><br><sub>Allan Alex Bittencourt Neves</sub>](https://github.com/trimegistro3) |  [<img src="https://avatars.githubusercontent.com/u/30351153?v=4" width=115><br><sub>Guilherme Lima</sub>](https://github.com/guilhermeonrails) |  [<img src="https://avatars.githubusercontent.com/u/8989346?v=4" width=115><br><sub>Alex Felipe</sub>](https://github.com/alexfelipe) |
+[<img src="https://avatars.githubusercontent.com/u/94246969?s=400&u=fc440c507c176ecc3e7cf8f069f9e080310f8746&v=4" width=115><br><sub>Allan Alex Bittencourt Neves</sub>](https://github.com/trimegistro3) |  [<img src="https://avatars.githubusercontent.com/u/91629397?v=4](https://avatars.githubusercontent.com/u/91629397?v=4)" width=115><br><sub>Luiz Saulo Rolim de Sousa </sub>](https://github.com/luizsaulo) |  [<img src="https://avatars.githubusercontent.com/u/60558571?v=4" width=115><br><sub>Lucas Prazeres de Matos</sub>](https://github.com/lucasprzm) |
 | :---: | :---: | :---: |
