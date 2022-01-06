@@ -77,6 +77,7 @@ function imagemURL(element) {
   };
   reader.readAsDataURL(file);
 }
+
 // O $() antes dessa função permite chamar a função a função anônima com o jQuery.
 $(function () {
   if (dados) {
@@ -112,6 +113,7 @@ $(function () {
     // Escondendo o modal utilizando jQuery
     $("#modalRegistro").modal("hide");
     //Limpeza dos campos
+    $("#hdID").val("");
     $("#txtNome").val("");
     $("#img").val("");
     $("#txtDescricao").val("");
