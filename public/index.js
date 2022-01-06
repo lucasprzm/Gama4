@@ -18,6 +18,8 @@ var dados = [
     descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti.",
   },
 ];
+// Criação da variável imagem que será usada no objeto registro para novos cursos.
+let imagem = "";
 // Função para apagar um curso e depois refazer a tabela.
 function ApagaRegistro(id) {
   let _confirm = confirm("Deseja realmente excluir este registro?");
@@ -41,7 +43,7 @@ function EditaRegistro(id) {
       $("#hdID").val(item.id);
       $("#txtNome").val(item.nome);
       $("#txtDescricao").val(item.descricao);
-      //$("#img").val(item.imgUrl);
+      imagem = item.imgUrl;
     }
   });
 }
@@ -65,8 +67,7 @@ function populaTabela() {
     });
   }
 }
-// Criação da variável imagem que será usada no objeto registro para novos cursos.
-let imagem = "";
+
 // Função que é chamada ao escolher uma imagem no modal, atribuí o valor de imagem como reader.result que gera um código base64 da imagem.
 function imagemURL(element) {
   var file = element.files[0];
@@ -114,6 +115,7 @@ $(function () {
     $("#txtNome").val("");
     $("#img").val("");
     $("#txtDescricao").val("");
+    imagem = "";
     // Chamando a função novamente para re-exibir os cursos com o novo curso adicionado.
     populaTabela();
   });
