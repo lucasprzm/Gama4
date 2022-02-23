@@ -24,7 +24,7 @@ funcionalidade 3 “excluir”: apagar cursos existentes
 
 ## ACESSO AO PROJETO:
 
-https://github.com/luizsaulo/Gama4
+https://frosty-lovelace-c5e9c4.netlify.app/
 
 ## TECNOLOGIAS UTILIZADAS:
 
